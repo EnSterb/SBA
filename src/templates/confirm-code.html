@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href=" {{url_for('static', path='css/login.css')}} ">
+
+<div class="sign-in-block">
+            Смена пароля
+</div>
+<div class="data-block">
+    <p class="data-p">Ввод кода</p>
+    <input type="text"  id="code" class="data-input" maxlength="6">
+    </input>
+
+    <a href="change-password" type="submit" id="sign-in-button" style="width: 472px; height: 28px">Далее</a>
+</div>
+
+
+<script type="module" src="{{url_for('static',path='js/confirm-code.js')}}"></script>
+{% endblock %}

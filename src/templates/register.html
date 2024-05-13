@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href=" {{url_for('static', path='css/login.css')}}">
+<div class="sign-in-block">
+            Регистрация
+</div>
+<div class="data-block">
+    <h2>Введите данные</h2>
+    <p class="data-p">Адресс почты</p>
+    <input type="email"  id="email" class="data-input">
+    </input>
+    <div id="email-error" class="error-message"></div>
+    <p class="data-p">Пароль</p>
+    <input type="password"  id="password" class="data-input">
+    </input>
+    <div id="password-error" class="error-message"></div>
+    <p class="data-p">Подтвердите пароль</p>
+    <input type="password"  id="confirm-password" class="data-input">
+    </input>
+    <div id="confirm-password-error" class="error-message"></div>
+
+    <button type="submit" id="sign-in-button">Зарегистрироваться</button>
+</div>
+<script type="module" src=" {{url_for('static', path='js/register.js')}}"></script>
+{% endblock %}

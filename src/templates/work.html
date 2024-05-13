@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href=" {{url_for('static', path='css/diagram.css')}}">
+<link rel="stylesheet" href=" {{url_for('static', path='css/pie.css')}}">
+<link rel="stylesheet" href=" {{url_for('static', path='css/work.css')}}">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css">
+<style>
+        #grafiks {
+            display: none; /* По умолчанию скрываем блок с графиками */
+        }
+        #show-graphs{
+            background-color: lightgray;
+        }
+    </style>
+<h1 class="page-name" style="align-self: flex-start; margin-left: 6%; margin-top: 24px">
+            Данные по выпискам
+        </h1>
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 86%; margin: 3vw 0px">
+
+
+
+    <div style="display:flex; flex-direction: row; align-items: center; gap: 8px">
+        <button class="file-upload-container" id="download" >
+            Скачать
+        </button>
+        <button class="file-upload-container" id="send" >
+            Загрузить
+        </button>
+        <input type="file" id="fileToUpload" style="display: none">
+    </div>
+
+
+
+<div class="nav-bar">
+        <div id="date-selector" style="display:flex; flex-direction: row; align-items: center; justify-content: space-around; width: auto; gap: 8px">
+            <select id="periodSelector">
+                <option value="week">За неделю</option>
+                <option value="month">За месяц</option>
+                <option value="custom">Свой период</option>
+            </select>
+            <input type="date" min="1980-01-01" max="2999-01-01" id="startDate" name="startDate" style="display: none;">
+            <input type="date" min="1980-01-01" max="2999-01-01" id="endDate" name="endDate" style="display: none;">
+            <button type="submit" class="send" id="dateButton">Добавить</button>
+            <button type="submit" class="send" id="clear">Очистить</button>
+        </div>
+    </div>
+
+
+</div>
+
+<div style="display:flex; flex-direction: row; align-items: center; gap: 8px; align-self: flex-start; margin-left: 7%">
+    <button id="show-table" class="send">Таблица</button>
+    <button id="show-graphs" class="send">Графики</button>
+</div>
+
+<div id="grafiks">
+    <div id="diagram"></div>
+    <div id="pie"></div>
+</div>
+
+<div class="data-table">
+    <table id="example" class="display" style="width:1000px">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Сумма</th>
+                <th>Валюта</th>
+                <th>Тип операции</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Дата</th>
+                <th>Сумма</th>
+                <th>Валюта</th>
+                <th>Тип операции</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+
+
+<script type="module" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script type="module" src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+<script type="module" src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script type="module" src=" {{url_for('static', path='js/diagram.js')}}"></script>
+<script type="module" src=" {{url_for('static', path='js/pie.js')}}"></script>
+<script type="module" src=" {{url_for('static', path='js/work.js')}}"></script>
+{% endblock %}

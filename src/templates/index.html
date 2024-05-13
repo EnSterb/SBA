@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<link rel="stylesheet" href=" {{url_for('static', path='css/index.css')}}" />
+
+<div id="index-main-name-block" >
+    <h1 class="page-name">
+        Ваш сервис по просмотру доходов
+    </h1>
+    <h3>
+        Всегда готовы вам помочь
+    </h3>
+
+    <button  id="index-link">Перейти к просмотру</button>
+
+
+</div>
+<div id="index-icons-block">
+    <div class="index-icon-text " >
+        <img src="{{url_for('static', path='imgs/education.png')}}" alt="icon" class="index-div-icon">
+        <p class="index-p">
+            Данный сервис был создан исключительно в учебных целях
+        </p>
+    </div>
+    <div class="index-icon-text" >
+        <img src=" {{url_for('static', path='imgs/package.png')}}" alt="icon" class="index-div-icon">
+        <p class="index-p">
+            Автоматическая поддержка CSV и XLSX, PDF (BNB, Belarus-банк) файлов
+        </p>
+    </div>
+    <div class="index-icon-text" >
+        <img src=" {{url_for('static', path='imgs/secure.png')}}" alt="icon" class="index-div-icon">
+        <p class="index-p">
+            Сервис обеспечивает безопасность ваших личных данных
+        </p>
+    </div>
+</div>
+
+<script type="module" src=" {{url_for('static', path='js/index.js')}}"></script>
+{% endblock %}

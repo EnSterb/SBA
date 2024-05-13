@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', path='css/main.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', path='css/index-modal-button.css')}}"/>
+    <link rel="stylesheet" href=" {{url_for('static', path='css/base.css')}}" />
+    <title>SBA</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 440px;
+          "
+        >
+          <a href="index"
+            ><img src="{{ url_for('static', path='imgs/logo.png')}}" style="width: 48px"
+          /></a>
+          <a href="index" style="font-size: 40px" class="page-name">SmartBank Analytics</a>
+        </div>
+        <div
+          style="
+            width: 440px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          " id="set"
+        >
+          <a href="login" id="login-link" class="link">
+              Войти
+          </a>
+
+          <a href="register" id="register-link" class="link">
+              Регистрация
+          </a>
+
+          <button id="burger-menu-button"> <img src="{{url_for('static', path='imgs/settings.png')}}" alt="icon" class="index-div-icon"></button> <!-- Вот здесь используется бургер-значок -->
+
+        </div>
+      </nav>
+    </header>
+
+    <main id="content">
+      <div id="menu" style="display: none;"> <!-- Меню изначально скрыто -->
+              <p class="email" >Почта:</p>
+              <p class="email" id="settings-email">aaa</p>
+              <button class="menuItem" onclick="goToWork()" >Данные</button>
+              <button class="menuItem" onclick="goToChangePassword()">Сменить пароль</button>
+              <button class="menuItem" onclick="logOut()">Выйти</button>
+      </div>
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer id="footer">
+      <nav>
+        <button class="trigger" id="terms-button">
+          <u>Политика конфиденциальности и Условия пользования</u>
+        </button>
+        <div class="modal" id="terms-modal">
+          <div class="modal-content">
+            <div style="display: flex; padding: 0rem 1.5rem; align-items: center;justify-content: space-between;">
+              <h1>Условия пользования и политика конфиденциальности</h1>
+              <span class="close-button" id="terms-close-button" style="width: 3rem; height: 2rem;">X</span>
+            </div>
+            <hr style="border: 1px solid; width: 100%;">
+            <div style="display: flex; flex-direction: column; padding: 0rem 1.5rem;">
+              <p>
+                &emsp;Мы собираем и используем вашу информацию только для
+                предоставления и улучшения нашего сервиса. Ваша информация
+                собирается при регистрации на нашем сайте и при использовании
+                сервиса.
+                <br>
+                <br>
+                &emsp;При регистрации на нашем сайте, мы просим вас предоставить
+                нам определенную личную информацию, которую можно использовать для
+                связи или идентификации вас. Личная информация может включать, но
+                не ограничивается вашим именем, адресом электронной почты и
+                номером телефона.
+                <br>
+                <br>
+                &emsp;Мы используем вашу информацию только для предоставления вам
+                наших услуг. Мы не продаем вашу информацию третьим лицам. Мы
+                храним вашу информацию в течение ограниченного периода времени,
+                необходимого для предоставления наших услуг, и удаляем ее после
+                этого.
+                <br>
+                <br>
+                &emsp;Мы можем время от времени обновлять нашу политику
+                конфиденциальности. Мы уведомим вас о любых изменениях, разместив
+                новую политику конфиденциальности на этой странице.
+                <br>
+                <br>
+                &emsp;Если у вас есть вопросы об этой политике конфиденциальности,
+                пожалуйста, свяжитесь с нами.
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <p>Поддержка</p>
+          <p>
+            <u>@gmail.com</u>
+          </p>
+          </div>
+      </nav>
+    </footer>
+  <script src="{{url_for('static', path='js/base.js')}}"></script>
+  </body>
+</html>
